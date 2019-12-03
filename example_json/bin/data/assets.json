@@ -1,0 +1,17 @@
+{
+    "textures":{
+        "folder":"img",
+        "info":"files [[id,path]]",
+        "files":[
+            ["cat", "cat.jpg"]
+        ]
+    },
+    "fonts":{
+        "folder":"fonts",
+        "info":"files [[id,path]]",
+        "files":[
+            ["IndieFlower", "IndieFlower-Regular.ttf"]
+        ]
+    }
+    
+}

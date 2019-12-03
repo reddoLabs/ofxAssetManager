@@ -1,0 +1,2 @@
+ofxAssetManager
+ofxFontStash2
