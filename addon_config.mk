@@ -15,16 +15,16 @@
 # and the PG will write to the console the kind of error and in which line it is
 
 meta:
-	ADDON_NAME = ofxAnimatable
-	ADDON_DESCRIPTION = Set up very simple animations, with curves, repeat modes and basic scheduling.
-	ADDON_AUTHOR = armadillu
-	ADDON_TAGS = "animation" "loop" "easing" "scheduling"
-	ADDON_URL = https://github.com/armadillu/ofxAnimatable
+	ADDON_NAME = ofxAssetManager
+	ADDON_DESCRIPTION = A class to load and manage textures and fonts.
+	ADDON_AUTHOR = brinoausrino
+	ADDON_TAGS = "assets"
+	ADDON_URL = https://github.com/brinoausrino/ofxAssetManager
 
 common:
 	# dependencies with other addons, a list of them separated by spaces 
 	# or use += in several lines
-	# ADDON_DEPENDENCIES = 
+	# ADDON_DEPENDENCIES = ofxFontStash2
 	
 	# include search paths, this will be usually parsed from the file system
 	# but if the addon or addon libraries need special search paths they can be
