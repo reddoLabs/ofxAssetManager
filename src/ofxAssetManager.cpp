@@ -28,15 +28,40 @@ void ofxAssetManager::addAssetJson(ofJson assets)
 	for (auto& t : assets["textures"]["files"]) {
 		loadTexture(t[0].get<string>(), assets["textures"]["folder"].get<string>() + "/" + t[1].get<string>(),true);
 	}
+	// disable logging each font that is loaded
+	auto currentLogLevel = ofGetLogLevel();
+	ofSetLogLevel(OF_LOG_ERROR);
 	for (auto& f : assets["fonts"]["files"]) {
 
 		getFonts()->addFont(f[0].get<string>(), assets["fonts"]["folder"].get<string>() + "/" + f[1].get<string>());
 	}
+	for (auto& f : assets["ofFonts"]["files"]) {
+		shared_ptr<ofTrueTypeFont> font = shared_ptr<ofTrueTypeFont>(new ofTrueTypeFont());
+		font->load(assets["ofFonts"]["folder"].get<string>() + "/" + f[1].get<string>(), assets["ofFonts"]["size"].get<int>(), true, true);
+		fontsOf.insert(make_pair(f[0].get<string>(), font));
+	}
+	ofSetLogLevel(currentLogLevel);
 }
 
 shared_ptr<ofxFontStash2::Fonts> ofxAssetManager::getFonts()
 {
 	return fonts;
+}
+
+std::map<string, shared_ptr<ofTrueTypeFont>> ofxAssetManager::getFontsOf()
+{
+	return fontsOf;
+}
+
+shared_ptr<ofTrueTypeFont> ofxAssetManager::getFontOf(string id)
+{
+	if (fontsOf.find(id) != fontsOf.end()) {
+		return fontsOf[id];
+	}
+	else {
+		return fontsOf.begin()->second;
+	}
+	
 }
 
 ofTexture ofxAssetManager::loadTexture(string id, string path, bool overwriteExisting)

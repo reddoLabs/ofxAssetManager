@@ -14,6 +14,9 @@ public:
 	void addAssetJson(ofJson assets);
 
 	shared_ptr<ofxFontStash2::Fonts> getFonts();
+	std::map<string, shared_ptr<ofTrueTypeFont>> getFontsOf();
+	shared_ptr<ofTrueTypeFont> getFontOf(string id);
+
 
 	ofTexture loadTexture(string id, string path, bool overwriteExisting = false);
 	void addTexture(string id, ofTexture texture, bool overwriteExisting = false);
@@ -23,5 +26,6 @@ public:
 private:
 	std::map<string, ofTexture> textures;
 	shared_ptr<ofxFontStash2::Fonts> fonts;
+	std::map<string, shared_ptr<ofTrueTypeFont>> fontsOf;
 };
 
